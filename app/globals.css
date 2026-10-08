@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-arabic: var(--font-ibm-plex), var(--font-tajawal), system-ui, -apple-system, sans-serif;
+    --primary: #064e3b; /* Deep Saudi Forest Green */
+    --primary-hover: #043f30;
+    --primary-light: #ecfdf5;
+    --accent-amber: #b45309; /* Warm Gold */
+    --accent-amber-light: #fffbeb;
+    --slate-dark: #0f172a;
+    --slate-body: #334155;
+    --slate-light: #f8fafc;
+    --border-color: #e2e8f0;
+  }
+
+  html {
+    direction: rtl;
+    text-align: right;
+    scroll-behavior: smooth;
+    font-family: var(--font-arabic);
+    color: var(--slate-dark);
+    background-color: #f8fafc;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    font-family: var(--font-arabic);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #1e293b;
+    background-color: #f8fafc;
+    overflow-x: hidden;
+    width: 100%;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-arabic);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Mobile safe padding helper */
+.pb-safe {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 4.5rem);
+}
+
+@media (min-width: 1024px) {
+  .pb-safe {
+    padding-bottom: 0px;
+  }
+}
+
+/* Human-crafted card shadows */
+.card-human {
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+}
+
+.card-human-hover:hover {
+  box-shadow: 0 12px 30px -4px rgba(6, 78, 59, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
+}
+
+/* Blog Article Content Typography */
+.blog-article-content h2 {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #064e3b;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #ecfdf5;
+  scroll-margin-top: 6rem;
+}
+
+.blog-article-content h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  scroll-margin-top: 6rem;
+}
+
+.blog-article-content p {
+  color: #334155;
+  line-height: 1.95;
+  margin-bottom: 1rem;
+}
+
+.blog-article-content ul, .blog-article-content ol {
+  padding-right: 1.5rem;
+  margin-bottom: 1.25rem;
+  list-style-type: disc;
+  color: #334155;
+  line-height: 1.9;
+}
+
+.blog-article-content ol {
+  list-style-type: decimal;
+}
+
+.blog-article-content li {
+  margin-bottom: 0.4rem;
+}
+
+.blog-article-content strong {
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.blog-article-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.blog-article-content th {
+  background-color: #064e3b;
+  color: #ffffff;
+  padding: 0.75rem 1rem;
+  text-align: right;
+  font-weight: 800;
+}
+
+.blog-article-content td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.blog-article-content tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.blog-article-content blockquote {
+  border-right: 4px solid #10b981;
+  background-color: #f0fdf4;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  color: #064e3b;
+  font-weight: 600;
+}
+
+.blog-article-content hr {
+  border: 0;
+  border-top: 1px solid #e2e8f0;
+  margin: 2rem 0;
+}
