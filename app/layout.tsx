@@ -56,34 +56,153 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const rootOrgSchema = {
+  const siteLogoUrl = 'https://mokafahalriyadh.com/logo.png';
+
+  const rootSchemaGraph = {
     '@context': 'https://schema.org',
-    '@type': 'PestControlBusiness',
-    name: 'مؤسسة حصن المملكة لمكافحة الآفات والوقاية الإنشائية',
-    url: 'https://www.mokafahalriyadh.com',
-    logo: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=300&q=80',
-    telephone: '+966558141870',
-    priceRange: 'SAR 180 - 1500',
-    areaServed: {
-      '@type': 'Country',
-      name: 'المملكة العربية السعودية'
-    },
-    paymentAccepted: 'Cash, Credit Card, Mada, Bank Transfer',
-    currenciesAccepted: 'SAR',
-    openingHoursSpecification: [
+    '@graph': [
       {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday'
+        '@type': 'Organization',
+        '@id': 'https://mokafahalriyadh.com/#organization',
+        'name': 'شركة حصن المملكة الوطنية لمكافحة الحشرات والوقاية الإنشائية',
+        'alternateName': 'حصن المملكة',
+        'url': 'https://mokafahalriyadh.com/',
+        'logo': siteLogoUrl,
+        'telephone': '+966558141870',
+        'contactPoint': [
+          {
+            '@type': 'ContactPoint',
+            'telephone': '+966558141870',
+            'contactType': 'customer service',
+            'areaServed': 'SA',
+            'availableLanguage': ['Arabic', 'English']
+          }
+        ]
+      },
+      {
+        '@type': ['HomeAndConstructionBusiness', 'LocalBusiness'],
+        '@id': 'https://mokafahalriyadh.com/#localbusiness',
+        'parentOrganization': {
+          '@id': 'https://mokafahalriyadh.com/#organization'
+        },
+        'name': 'شركة مكافحة الحشرات والنمل الأبيض المعتمدة بـالرياض',
+        'url': 'https://mokafahalriyadh.com/',
+        'telephone': '+966558141870',
+        'priceRange': '$$',
+        'image': siteLogoUrl,
+        'description': 'شركة مكافحة حشرات ونمل أبيض معتمدة من هيئة الغذاء والدواء (SFDA) ووزارة البلديات، تقدم خدمات الإبادة الفورية والرش بضمان يصل إلى 15 عاماً في الرياض.',
+        'address': {
+          '@type': 'PostalAddress',
+          'addressLocality': 'الرياض',
+          'addressRegion': 'منطقة الرياض',
+          'addressCountry': 'SA'
+        },
+        'geo': {
+          '@type': 'GeoCoordinates',
+          'latitude': 24.7136,
+          'longitude': 46.6753
+        },
+        'openingHoursSpecification': [
+          {
+            '@type': 'OpeningHoursSpecification',
+            'dayOfWeek': [
+              'Monday',
+              'Tuesday',
+              'Wednesday',
+              'Thursday',
+              'Friday',
+              'Saturday',
+              'Sunday'
+            ],
+            'opens': '00:00',
+            'closes': '23:59'
+          }
         ],
-        opens: '00:00',
-        closes: '23:59'
+        'areaServed': [
+          {
+            '@type': 'City',
+            'name': 'الرياض'
+          },
+          {
+            '@type': 'Country',
+            'name': 'المملكة العربية السعودية'
+          }
+        ],
+        'aggregateRating': {
+          '@type': 'AggregateRating',
+          'ratingValue': '4.9',
+          'reviewCount': '3240',
+          'bestRating': '5',
+          'worstRating': '1'
+        },
+        'hasOfferCatalog': {
+          '@type': 'OfferCatalog',
+          'name': 'خدمات مكافحة الحشرات والوقاية الإنشائية',
+          'itemListElement': [
+            {
+              '@type': 'Offer',
+              'itemOffered': {
+                '@type': 'Service',
+                'name': 'مكافحة النمل الأبيض (الأرضة)',
+                'description': 'حقن ومعالجة النمل الأبيض والخرسانات بمبيدات بايفلكس بضمان رسمي حتى 15 سنة.'
+              }
+            },
+            {
+              '@type': 'Offer',
+              'itemOffered': {
+                '@type': 'Service',
+                'name': 'إبادة بق الفراش بالحرارة والضباب ULV',
+                'description': 'استئصال حشرة الفراش بالبخار النفاذ بدون إخلاء المنزل.'
+              }
+            },
+            {
+              '@type': 'Offer',
+              'itemOffered': {
+                '@type': 'Service',
+                'name': 'إبادة الصراصير بالمطابخ',
+                'description': 'مكافحة فورية بالجل الألماني والسويسري بدون رائحة ومصرح من SFDA.'
+              }
+            },
+            {
+              '@type': 'Offer',
+              'itemOffered': {
+                '@type': 'Service',
+                'name': 'تركيب طوارد وشبك الحمام',
+                'description': 'حماية أسطح وواجهات المباني وشبابيك الفلل من الطيور والحمام.'
+              }
+            }
+          ]
+        }
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': 'https://mokafahalriyadh.com/#faq',
+        'mainEntity': [
+          {
+            '@type': 'Question',
+            'name': 'ما هي مدة الضمان على مكافحة النمل الأبيض؟',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'نقدم ضماناً رسمياً معتمداً وموثقاً يصل من 10 إلى 15 سنة على خدمات مكافحة النمل الأبيض ورش الدفان باستخدام مبيدات بايفلكس الأصلية.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'هل تتطلب عملية الرش إخلاء المنزل أو إزالة الأواني؟',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'لا، نستخدم مبيدات وتقنيات جل ألمانية وأمريكية معتمدة من هيئة الغذاء والدواء (SFDA) بدون رائحة وآمنة تماماً على الأطفال، وتتم الإبادة دون الحاجة لمغادرة المنزل.'
+            }
+          },
+          {
+            '@type': 'Question',
+            'name': 'كم يستغرق وصول فريق الرش والمعاينة الميدانية في الرياض؟',
+            'acceptedAnswer': {
+              '@type': 'Answer',
+              'text': 'تغطي فرقنا الميدانية أحياء الرياض كافة بمتوسط زمن استجابة ووصول يتراوح بين 25 إلى 30 دقيقة للمعاينة المجانية الفورية.'
+            }
+          }
+        ]
       }
     ]
   };
@@ -93,7 +212,7 @@ export default function RootLayout({
       <body className="antialiased bg-slate-50 text-slate-900 font-sans selection:bg-emerald-600 selection:text-white" suppressHydrationWarning>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(rootOrgSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(rootSchemaGraph) }}
         />
         <SiteProvider>{children}</SiteProvider>
       </body>
