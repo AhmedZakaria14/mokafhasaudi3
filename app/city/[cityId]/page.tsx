@@ -60,13 +60,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `اسعار رش الحشرات في ${city.name}`,
       ...city.featuredNeighborhoods.map((nh) => `مكافحة حشرات حي ${nh}`)
     ],
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title,
       description,
+      url: `https://mokafahalriyadh.com/city/${city.id}`,
       images: [{ url: city.heroImage }]
     },
     alternates: {
-      canonical: `https://www.mokafahalriyadh.com/city/${city.id}`
+      canonical: `https://mokafahalriyadh.com/city/${city.id}`
     }
   };
 }

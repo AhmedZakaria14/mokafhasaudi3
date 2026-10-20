@@ -58,13 +58,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `رش مبيدات ${service.title}`,
       ...service.targetPests
     ],
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title,
       description,
+      url: `https://mokafahalriyadh.com/services/${service.id}`,
       images: [{ url: service.heroImage }]
     },
     alternates: {
-      canonical: `https://www.mokafahalriyadh.com/services/${service.id}`
+      canonical: `https://mokafahalriyadh.com/services/${service.id}`
     }
   };
 }

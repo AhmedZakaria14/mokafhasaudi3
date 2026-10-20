@@ -55,13 +55,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `مبيد ${pest.name}`,
       `شركة مكافحة ${pest.name}`
     ],
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title,
       description,
+      url: `https://mokafahalriyadh.com/pests/${pest.id}`,
       images: [{ url: pest.image }]
     },
     alternates: {
-      canonical: `https://www.mokafahalriyadh.com/pests/${pest.id}`
+      canonical: `https://mokafahalriyadh.com/pests/${pest.id}`
     }
   };
 }

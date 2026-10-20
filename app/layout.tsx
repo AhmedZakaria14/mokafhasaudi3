@@ -18,6 +18,7 @@ const tajawal = Tajawal({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mokafahalriyadh.com'),
   title: 'شركة حصن المملكة الوطنية لمكافحة الحشرات والوقاية الإنشائية | معتمدة رسمياً SFDA والأمانات',
   description: 'المؤسسة الوطنية الرائدة في مكافحة الآفات والحشرات، حقن وتدفين النمل الأبيض (الأرضة) بضمان 15 سنة، إبادة الصراصير وبق الفراش والقوارض وطرد الحمام بمبيدات معتمدة من هيئة الغذاء والدواء SFDA ووزارة البلديات والإسكان. خدمة 24 ساعة بكافة مدن المملكة. اتصل: 0558141870.',
   keywords: [
@@ -35,12 +36,37 @@ export const metadata: Metadata = {
     'حصن المملكة للخدمات البيئية'
   ],
   authors: [{ name: 'شركة حصن المملكة للخدمات البيئية ومكافحة الآفات' }],
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://mokafahalriyadh.com/',
+  },
   icons: {
     icon: '/favicon.ico',
+    apple: '/icon.png',
   },
   openGraph: {
     title: 'شركة حصن المملكة الوطنية لمكافحة الحشرات والتعقيم',
     description: 'معتمدون لدى هيئة الغذاء والدواء SFDA والجهات الرقابية. حلول هندسية متكاملة لإبادة الآفات مع ضمانات موثقة تصل إلى 15 عاماً وسرعة وصول في 25 دقيقة بكافة مناطق المملكة.',
+    url: 'https://mokafahalriyadh.com/',
+    siteName: 'شركة حصن المملكة الوطنية لمكافحة الحشرات',
+    images: [
+      {
+        url: 'https://mokafahalriyadh.com/logo.png',
+        width: 512,
+        height: 512,
+        alt: 'شركة حصن المملكة الوطنية لمكافحة الحشرات والوقاية الإنشائية',
+      },
+    ],
     type: 'website',
     locale: 'ar_SA',
   },
@@ -48,6 +74,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'شركة حصن المملكة لمكافحة الحشرات والوقاية الإنشائية',
     description: 'المؤسسة المعتمدة الأولى بالمملكة العربية السعودية لمكافحة الآفات ورش المبيدات - هاتف: 0558141870',
+    images: ['https://mokafahalriyadh.com/logo.png'],
   },
 };
 
@@ -209,11 +236,13 @@ export default function RootLayout({
 
   return (
     <html lang="ar" dir="rtl" className={`${ibmPlexArabic.variable} ${tajawal.variable}`}>
-      <body className="antialiased bg-slate-50 text-slate-900 font-sans selection:bg-emerald-600 selection:text-white" suppressHydrationWarning>
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(rootSchemaGraph) }}
         />
+      </head>
+      <body className="antialiased bg-slate-50 text-slate-900 font-sans selection:bg-emerald-600 selection:text-white" suppressHydrationWarning>
         <SiteProvider>{children}</SiteProvider>
       </body>
     </html>

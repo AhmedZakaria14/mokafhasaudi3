@@ -27,7 +27,7 @@ export const SeoBreadcrumbs: React.FC<SeoBreadcrumbsProps> = ({ items }) => {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `https://www.mokafahalriyadh.com${item.url}`
+      item: `https://mokafahalriyadh.com${item.url}`
     }))
   };
 

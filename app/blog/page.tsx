@@ -19,8 +19,12 @@ export const metadata: Metadata = {
     'مبيدات معتمدة من هيئة الغذاء والدواء SFDA',
     'عقود مكافحة الحشرات للمطاعم والمنشآت'
   ],
+  robots: {
+    index: true,
+    follow: true,
+  },
   alternates: {
-    canonical: 'https://www.mokafahalriyadh.com/blog'
+    canonical: 'https://mokafahalriyadh.com/blog'
   }
 };
 
@@ -30,13 +34,13 @@ export default function BlogDirectoryPage() {
     '@type': 'Blog',
     name: 'موسوعة واستشارات حصن المملكة لمكافحة الآفات والصحة العامة',
     description: 'مقالات وأدلة علمية تفصيلية تغطي مكافحة الحشرات والقوارض والوقاية الإنشائية في كافة مناطق المملكة العربية السعودية.',
-    url: 'https://www.mokafahalriyadh.com/blog',
+    url: 'https://mokafahalriyadh.com/blog',
     publisher: {
       '@type': 'Organization',
       name: 'مؤسسة حصن المملكة لمكافحة الآفات',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.mokafahalriyadh.com/icon.png'
+        url: 'https://mokafahalriyadh.com/logo.png'
       }
     },
     blogPost: SAUDI_BLOG_POSTS.map((post) => ({
@@ -49,7 +53,7 @@ export default function BlogDirectoryPage() {
         '@type': 'Person',
         name: post.author
       },
-      url: `https://www.mokafahalriyadh.com/blog/${post.slug}`
+      url: `https://mokafahalriyadh.com/blog/${post.slug}`
     }))
   };
 

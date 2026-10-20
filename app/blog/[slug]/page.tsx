@@ -55,16 +55,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${post.title} | حصن المملكة`,
     description: post.excerpt,
     keywords: post.keywords,
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title: post.title,
       description: post.excerpt,
+      url: `https://mokafahalriyadh.com/blog/${post.slug}`,
       images: [{ url: post.image }],
       type: 'article',
       publishedTime: post.date,
       authors: [post.author]
     },
     alternates: {
-      canonical: `https://www.mokafahalriyadh.com/blog/${post.slug}`
+      canonical: `https://mokafahalriyadh.com/blog/${post.slug}`
     }
   };
 }
@@ -97,15 +102,15 @@ export default async function BlogPostPage({ params }: Props) {
     publisher: {
       '@type': 'Organization',
       name: 'مؤسسة حصن المملكة لمكافحة الآفات والرش الهندسي',
-      url: 'https://www.mokafahalriyadh.com',
+      url: 'https://mokafahalriyadh.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.mokafahalriyadh.com/icon.png'
+        url: 'https://mokafahalriyadh.com/logo.png'
       }
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://www.mokafahalriyadh.com/blog/${post.slug}`
+      '@id': `https://mokafahalriyadh.com/blog/${post.slug}`
     },
     keywords: post.keywords.join(', ')
   };

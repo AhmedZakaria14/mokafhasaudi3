@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/', '/dashboard/']
     },
-    sitemap: 'https://www.mokafahalriyadh.com/sitemap.xml'
+    sitemap: 'https://mokafahalriyadh.com/sitemap.xml'
   };
 }

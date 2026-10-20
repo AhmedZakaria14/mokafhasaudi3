@@ -66,13 +66,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       `ارقام ${service.title} في ${city.name}`,
       ...city.featuredNeighborhoods.slice(0, 4).map((nh) => `${service.title} حي ${nh}`)
     ],
+    robots: {
+      index: true,
+      follow: true,
+    },
     openGraph: {
       title,
       description,
+      url: `https://mokafahalriyadh.com/city/${city.id}/${service.id}`,
       images: [{ url: service.heroImage }]
     },
     alternates: {
-      canonical: `https://www.mokafahalriyadh.com/city/${city.id}/${service.id}`
+      canonical: `https://mokafahalriyadh.com/city/${city.id}/${service.id}`
     }
   };
 }

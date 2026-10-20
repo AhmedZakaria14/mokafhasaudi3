@@ -5,7 +5,7 @@ import { PEST_SERVICES } from '@/data/services';
 import { SAUDI_PESTS } from '@/data/pests';
 import { SAUDI_BLOG_POSTS } from '@/data/blog';
 
-const BASE_URL = 'https://www.mokafahalriyadh.com';
+const BASE_URL = 'https://mokafahalriyadh.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
 

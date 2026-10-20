@@ -1,0 +1,16 @@
+Technical Issue,url,Recommended Fix,
+Canonicals: Non-Indexable Canonical,https://docs.google.com/spreadsheets/d/13c7jgaERUSPHGEG9lDmKKTH-EUlnRiHCIzcmEyDI_6o/edit?usp=sharing,اضافة وسم ال index,
+Security: Missing Content-Security-Policy Header,https://docs.google.com/spreadsheets/d/1N-AsxfJElSztei8JMiSDA4WPOVmx9irKleQn-XEil3k/edit?usp=sharing,كود مخصص ل vercel,
+Security: Missing X-Content-Type-Options Header,https://docs.google.com/spreadsheets/d/18n7-yZkUncpdEnMvcwcC68h1tclquzHgpBafxI_-upo/edit?usp=sharing,ملف vercel.json,{
+,,,headers: [
+,,,{
+,,,"source: ""/(.*)"","
+,,,headers: [
+,,,{
+,,,"key: ""X-Content-Type-Options"","
+,,,"value: ""nosniff"""
+,,,}
+,,,]
+,,,}
+,,,]
+,,,}
